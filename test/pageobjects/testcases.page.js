@@ -1,28 +1,9 @@
+import common from "./common";
 import Page from "./page";
 
 class Testcases extends Page {
-  get ctrHeading() {
-    return $(".container h3");
-  }
-
-  get btnCreateTestcase() {
-    return $(".row button[class='crud']");
-  }
-
-  get btnEditFeature() {
-    return $("button#edit");
-  }
-
   get inputFeatureTitle() {
     return $("input#featureTitle");
-  }
-
-  get btnRemoveFeature() {
-    return $(".row button[id='delete']");
-  }
-
-  get modalHeading() {
-    return $("#transition-modal-title");
   }
 
   get inputScenario() {
@@ -31,10 +12,6 @@ class Testcases extends Page {
 
   get textareaDescription() {
     return $("textarea#description");
-  }
-
-  get btnSubmit() {
-    return $("input[type='submit']");
   }
 
   async fillDetails() {
@@ -46,7 +23,7 @@ class Testcases extends Page {
     ).setValue(
       "This testcase has been created with the help of automation testing"
     );
-    await (await this.btnSubmit).click();
+    await (await common.btnSubmit).click();
   }
 
   get rowLastTestcase() {

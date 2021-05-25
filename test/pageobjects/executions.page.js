@@ -1,3 +1,4 @@
+import common from "./common";
 import Page from "./page";
 
 class Executions extends Page {
@@ -7,14 +8,6 @@ class Executions extends Page {
 
   get filterExecutions() {
     return $("#executionsFilter");
-  }
-
-  get btnCreateExecution() {
-    return $(".container button[class='crud']");
-  }
-
-  get modalHeading() {
-    return $("#transition-modal-title");
   }
 
   get inputSlug() {
@@ -33,16 +26,12 @@ class Executions extends Page {
     return $("select#featureSelect option:last-of-type");
   }
 
-  get btnSubmit() {
-    return $("input[type='submit']");
-  }
-
   async fillDetails() {
     await (await this.inputSlug).setValue("auto-test");
     await (await this.inputTitle).setValue("Automated testing");
     await (await this.selectFeatures).click();
     await (await this.optionLastFeature).click();
-    await (await this.btnSubmit).click();
+    await (await common.btnSubmit).click();
   }
 
   get linkLastExecution() {
